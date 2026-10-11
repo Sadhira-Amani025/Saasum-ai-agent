@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: saassum-ai-commerce
+    runtime: node
+    buildCommand: npm install --prefix server --omit=dev
+    startCommand: npm --prefix server start
+    healthCheckPath: /api/health
+    autoDeploy: true

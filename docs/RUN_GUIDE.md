@@ -74,3 +74,18 @@ Once started, open your web browser at:
 5. **Standalone Export**:
    - Click **Export ZIP** in the top bar to download `saassum-website.zip`.
    - Unzip and double-click `index.html` to run the website completely standalone without needing React or Spring Boot!
+
+## 3. Deploying the Node API to Render
+
+The Node API used by the current `server/` application is configured in `render.yaml`.
+Create or update the Render web service from the repository's `main` branch and use:
+
+```text
+Build Command: npm install --prefix server --omit=dev
+Start Command: npm --prefix server start
+Health Check Path: /api/health
+```
+
+After deployment, confirm the log checks out the latest `main` commit and verify
+`https://<your-render-service>.onrender.com/api/health` returns a JSON response with
+`"status":"ok"`. Do not use the obsolete `cd server && npm start` command.
