@@ -8,7 +8,7 @@
     "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"blue,magenta\" \"npm run backend\" \"npm run frontend\"",
     "install:all": "cd backend && mvn dependency:go-offline && cd ../frontend && npm install",
     "build:frontend": "cd frontend && npm install && npm run build",
-    "start": "echo \"Use: npm run backend in one terminal and npm run frontend in another.\""
+    "start": "npm install --prefix server --omit=dev && npm --prefix server start"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
